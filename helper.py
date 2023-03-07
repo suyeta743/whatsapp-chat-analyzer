@@ -3,6 +3,100 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
+import calendar
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+
+
+
+#######################################################################
+
+def bar_plotting(df,x,y,title,x_title,y_title):
+    fig = px.bar(x=df[x], y=df[y],color=df[x])
+    fig.update_xaxes(title=x_title)
+    fig.update_yaxes(title=y_title)
+    # set the background color to transparent
+    fig.update_layout(
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        title={
+            'text': f"<b><span style='color: #fff;'>{title}</span></b>",
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {'size': 20},
+            'y': 0.9,
+            'pad': {'b': 10}
+        }
+    )
+    st.plotly_chart(fig)
+
+def get_week_of_month(timestamp):
+    arr = calendar.monthcalendar(timestamp.year,timestamp.month)
+    for i in range(len(arr)):
+        if (timestamp.day in arr[i]):
+            return i+1
+
+
+def get_week_number_vs_messgae(df,year,month,chart_type):
+    df['week_number'] = df['date'].apply(get_week_of_month)
+
+    df_year = df[df['year'] == year]
+    new_df = df_year[df_year['month'] == month]
+
+    new_df = new_df[['message', 'week_number']].groupby("week_number").count().reset_index()
+
+    if chart_type=="Bar":bar_plotting(new_df, "week_number", "message", "Week Number vs. Messages", "Week Number", "Total Messages")
+    elif chart_type=="Pie":pie_plotting(df,"week_number","message","Week Number vs. Messages")
+
+def pie_plotting(df,x,y,title):
+
+    fig = px.pie(df, values=y, names=x)
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    # set the background color to transparent
+    fig.update_layout(
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        title={
+            'text': f"<b><span style='color: #fff;'>{title}</span></b>",
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {'size': 20},
+            'y': 0.95,
+            'pad': {'b': 10}
+        }
+    )
+    st.plotly_chart(fig)
+
+
+def create_word_cloud(df):
+    all_messages = df['message'].tolist()
+    messages = ""
+    for m in all_messages:
+        messages += m
+
+    # Generate a word cloud image
+    wordcloud = WordCloud(width=2000, height=2000,
+                          background_color='white',
+                          min_font_size=10, max_words=200).generate(messages)
+
+    # Display the generated image:
+    plt.figure(figsize=(5, 5), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.tight_layout(pad=0)
+
+    st.pyplot(plt)
+
+
+#######################################################################
+
+
+
+
+
 # def fetch_stats(selected_user, df):
 #     if selected_user!='Overall':
 #         df = df[df['user'] == selected_user]

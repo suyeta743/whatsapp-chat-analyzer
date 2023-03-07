@@ -18,32 +18,7 @@ if uploaded_file is not None:
     user_list.sort()
     user_list.insert(0, "Overall")
 
-    selected_user = st.sidebar.selectbox("Show analysis wrt", user_list)
-
     if st.sidebar.checkbox("Show Analysis"):
-
-        num_messages, words = helper.fetch_stats(selected_user, df)
-
-        col1, col2, col3, col4 = st.columns(4)
-
-        with col1:
-            st.header("Total Messages")
-            st.title(num_messages)
-        with col2:
-            st.header("Total Words")
-            st.title(words)
-        # helper.user_vs_total_messages(df=df)
-
-        # user_vs_total_messages_bar_checkbox=st.button(label='Bar Chart',key='bar')
-        # user_vs_total_messages_pie_checkbox = st.button(label='Pie Chart', key='pie')
-        # if user_vs_total_messages_bar_checkbox:
-        #     helper.user_vs_total_messages_bar(df=df)
-        # if user_vs_total_messages_pie_checkbox:
-        #     helper.user_vs_total_messages_pie(df=df)
-
-        # html_code = """
-        # <h1 style="color:pink;">User Vs Total Messages</h1>
-        # """
 
         st.markdown("""
         <h1 style="color:pink;">User Vs Total Messages</h1>
@@ -113,7 +88,18 @@ if uploaded_file is not None:
         st.markdown("""
                                 <h1 style="color:pink;">Chat analysis by selecting year and month  weekwise chat analysis</h1>
                                 """, unsafe_allow_html=True)
-        selected_year=st.radio(label='Select Year',options=list(set(df.year.tolist())))
-        selected_month=st.radio(label='Select Month',options=list(set(df.month.tolist())))
+        selected_year = st.radio(label='Select Year',options=list(set(df.year.tolist())),horizontal=True)
+        selected_month = st.radio(label='Select Month',options=list(set(df.month.tolist())),horizontal=True)
+
+        select_chart_type = st.radio(label="Select Chart",options=["Bar","Pie"],horizontal=True)
+
+        helper.get_week_number_vs_messgae(df=df,year=selected_year,month=selected_month,chart_type=select_chart_type)
+
+        st.markdown(
+            """
+                <h1 style="color:pink;">Message Word Cloud</h2>
+            """,unsafe_allow_html=True
+        )
+        helper.create_word_cloud(df)
 
 
