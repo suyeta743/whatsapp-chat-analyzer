@@ -110,5 +110,10 @@ if uploaded_file is not None:
         if view_option=='Visible':
             helper.year_month_weekday_user_totalMessage_Sunburst(df=df)
 
+        st.markdown("""
+                                <h1 style="color:pink;">Chat analysis by selecting year and month  weekwise chat analysis</h1>
+                                """, unsafe_allow_html=True)
+        selected_year=st.radio(label='Select Year',options=list(set(df.year.tolist())))
+        selected_month=st.radio(label='Select Month',options=list(set(df.month.tolist())))
 
 
