@@ -22,7 +22,7 @@ WhatsApp Chat Analyzer is a Python-based tool that allows users to analyze and v
 
 ### Getting Started
 
-1. Clone the repository: `https://github.com/suyeta743/whatsapp-chat-analyzer`
+1. Clone the repository: `git clone https://github.com/suyeta743/whatsapp-chat-analyzer`
 
 2. Install the required dependencies: `pip install -r requirements.txt`
 
