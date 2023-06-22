@@ -95,10 +95,10 @@ if uploaded_file is not None:
 
         helper.stack_bar_month_user_messages(df=df)
 
-        st.markdown("""
-                <h1 style="color:pink;">User Vs Hour   Heatmap</h1>
-                """, unsafe_allow_html=True)
-        helper.heatmap_user_hour_total_messages(df=df)
+        # st.markdown("""
+        #         <h1 style="color:pink;">User Vs Hour   Heatmap</h1>
+        #         """, unsafe_allow_html=True)
+        # helper.heatmap_user_hour_total_messages(df=df)
 
         st.markdown("""
                         <h1 style="color:pink;">Week Vs Hour   Heatmap</h1>
