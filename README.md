@@ -22,11 +22,11 @@ WhatsApp Chat Analyzer is a Python-based tool that allows users to analyze and v
 
 ### Getting Started
 
-1. Clone the repository: `git clone https://github.com/your-username/whatsapp-chat-analyzer.git`
+1. Clone the repository: `https://github.com/suyeta743/whatsapp-chat-analyzer`
 
 2. Install the required dependencies: `pip install -r requirements.txt`
 
-3. Run the application: `streamlit run whatsapp_chat_analyzer.py`
+3. Run the application: `streamlit run app.py`
 
 4. Access the application in your web browser at `http://localhost:8501`
 
@@ -44,9 +44,6 @@ WhatsApp Chat Analyzer is a Python-based tool that allows users to analyze and v
 
 Contributions to the WhatsApp Chat Analyzer project are welcome! If you have any ideas for improvements or new features, feel free to open an issue or submit a pull request. Please make sure to follow the project's code of conduct and contribution guidelines.
 
-### License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ### Acknowledgments
 
