@@ -1,2 +1,80 @@
 ECHO is on.
 Log entry 1 
+commit 49c36b5170ec623d2fb9160305ef34f0ef81dea6
+Author: sukritiguin <sukritiguin.ece2020@nsec.ac.in>
+Date:   Thu Jun 22 22:31:43 2023 +0530
+
+    added log file
+
+commit ccbfd8091c734ea8cb78b5ac7ff412484d488af4
+Merge: 782d6eb e5fa937
+Author: sukritiguin <sukritiguin.ece2020@nsec.ac.in>
+Date:   Thu Jun 22 22:26:12 2023 +0530
+
+    Merge branch 'master' of https://github.com/suyeta743/whatsapp-chat-analyzer
+
+commit 782d6ebf58d26ed824a7a69fd9e67e2b099472bc
+Author: sukritiguin <sukritiguin.ece2020@nsec.ac.in>
+Date:   Thu Jun 22 22:25:33 2023 +0530
+
+    added requirements.txt
+
+commit e5fa937a6ffb720fda6516cac974de9e00a20b72
+Author: SUKRITI GUIN <89704581+sukritiguin@users.noreply.github.com>
+Date:   Thu Jun 22 22:14:43 2023 +0530
+
+    Update README.md
+
+commit 86de75b42a42b4006fcf3573da79c1bfaea4e4d5
+Author: SUKRITI GUIN <89704581+sukritiguin@users.noreply.github.com>
+Date:   Thu Jun 22 22:12:00 2023 +0530
+
+    Update README.md
+
+commit 33e71a60f046a82281979150323b38699f0a8be0
+Author: sukritiguin <sukritiguin.ece2020@nsec.ac.in>
+Date:   Thu Jun 22 21:50:42 2023 +0530
+
+    user vs hour heatmap removed
+
+commit fca813f4beeea742a3cafc455c60eb22bb2bb17c
+Author: sukritiguin <sukritiguin.ece2020@nsec.ac.in>
+Date:   Thu Jun 22 21:47:45 2023 +0530
+
+    fix bug : Chat analysis by selecting year and month weekwise chat analysis
+
+commit 58d9c39412677ad02155950365c15f4dc98ab6b0
+Author: sukritiguin <sukritiguin.ece2020@nsec.ac.in>
+Date:   Thu Jun 22 21:37:30 2023 +0530
+
+    added functionality to handle different datetime formar of exported chat file
+
+commit 8c7c16248b1a24a13f9558f7439626826a82df82
+Author: suyeta743 <suyetachowdhury.ece2020@nsec.ac.in>
+Date:   Wed Mar 8 02:24:21 2023 +0530
+
+    final
+
+commit d851ee327c4823ff45136e24123f437f9f4a6a6e
+Author: sukritiguin <sukritiguin.ece2020@nsec.ac.in>
+Date:   Wed Mar 8 01:59:16 2023 +0530
+
+    Updated
+
+commit a8d918556db1f1e158326918b84b6dc540d993bc
+Author: suyeta743 <suyetachowdhury.ece2020@nsec.ac.in>
+Date:   Wed Mar 8 00:42:44 2023 +0530
+
+    updated
+
+commit 2f01ba0a23390bf277d1212b795cc5c5ffc23053
+Author: Suyeta Chowdhury <115613059+suyeta743@users.noreply.github.com>
+Date:   Sun Feb 26 01:33:17 2023 +0530
+
+    Create README.md
+
+commit a5e946e86b8eceb678528fc54854153d7b9a4309
+Author: suyeta743 <suyetachowdhury.ece2020@nsec.ac.in>
+Date:   Sun Feb 26 01:32:24 2023 +0530
+
+    Initial commit
