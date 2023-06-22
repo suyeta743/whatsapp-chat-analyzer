@@ -43,9 +43,18 @@ def get_week_number_vs_messgae(df,year,month,chart_type):
     df['week_number'] = df['date'].apply(get_week_of_month)
 
     df_year = df[df['year'] == year]
+    if df_year.empty:
+        st.warning("Warning: No data available for the given year and month combination.")
+        return
     new_df = df_year[df_year['month'] == month]
+    if new_df.empty:
+        st.warning("Warning: No data available for the given year and month combination.")
+        return
 
     new_df = new_df[['message', 'week_number']].groupby("week_number").count().reset_index()
+    if new_df.empty:
+        st.warning("Warning: No data available for the given year and month combination.")
+        return
 
     if chart_type=="Bar":bar_plotting(new_df, "week_number", "message", "Week Number vs. Messages", "Week Number", "Total Messages")
     elif chart_type=="Pie":pie_plotting(df,"week_number","message","Week Number vs. Messages")
