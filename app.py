@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 import preprocessor, helper
 from streamlit.components.v1 import html
@@ -9,12 +10,32 @@ from streamlit.components.v1 import html
 
 
 st.sidebar.title("Whatsapp Chat Analyzer")
+date_formats_dict = {
+    'dd/mm/yy': '%d/%m/%y',
+    'dd/mm/YYYY': '%d/%m/%Y',
+    'mm/dd/yy': '%m/%d/%y',
+    'mm/dd/YYYY': '%m/%d/%Y',
+    'yy/mm/dd': '%y/%m/%d',
+    'YYYY/mm/dd': '%Y/%m/%d',
+    'dd-mm-yy': '%d-%m-%y',
+    'dd-mm-YYYY': '%d-%m-%Y',
+    'mm-dd-yy': '%m-%d-%y',
+    'mm-dd-YYYY': '%m-%d-%Y',
+    'yy-mm-dd': '%y-%m-%d',
+    'YYYY-mm-dd': '%Y-%m-%d'
+}
+time_format = st.sidebar.radio(label='Select Time Format : ', options=['12 Hr.','24 Hr.'])
+date_format = st.sidebar.radio(label='Select Date Format : ', options=date_formats_dict.keys())
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
     data = bytes_data.decode("utf-8")
-    df = preprocessor.preprocess(data)
-    # st.write(df.shape)
+    # df = preprocessor.preprocess(data)
+    df = pd.DataFrame()
+    if time_format == '12 Hr.':
+        df = preprocessor.f12(data=data, date_format=date_format)
+    else:
+        df = preprocessor.f24(data=data, date_format=date_format)
 
 
     # fetch unique users
